@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="IE=edge">
+<title>戦闘デモ</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<header>
+	<h1>戦闘エフェクト</h1>
+</header>
+
+<div class="battle_area">
+	<div class="battle_field">
+	    <div class="me">
+		    <div class="photo_position">
+			    <img src="img/docker.png" width="90" height="110" id="mychara">
+		    </div>
+	    </div>
+		<div class="you">
+			<div class="photo_position">
+			     <img src="img/octocat.jpeg" width="90" height="110" id="yourchara">
+		    </div>
+		</div>
+	</div>
+	
+		<input type="button" id="button_a" value="攻撃する">
+		<input type="button" id="button_b" value="戻る">
+
+        <div id = "log"></div>
+</div>
+
+<!--JavaScriptファイルの読み込み-->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="effect.js"></script>
+<script type="text/javascript" src="enemy.js"></script>
+
+</body>
+</html>
