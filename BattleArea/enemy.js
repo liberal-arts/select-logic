@@ -37,6 +37,9 @@ function dicreaseEnemyHp () {
 		//上で定義したlog要素に対して結果を出力します
 		log.innerHTML += 'オクトキャットを撃破しました<br>';
 	}
+    var logTmp = document.getElementById("log");
+    logTmp.scrollTop = logTmp.scrollHeight;
+
 }
 
 //上で定義されたhtml上の要素がクリックされた時敵の体力を減らすメソッドを呼び出します
