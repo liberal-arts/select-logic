@@ -40,7 +40,7 @@ function dicreaseEnemyHp () {
        
 	} 
 
-
+        //logの表示を一番最後に照準を合わせます
     var logTmp = document.getElementById("log");
     logTmp.scrollTop = logTmp.scrollHeight;
 
