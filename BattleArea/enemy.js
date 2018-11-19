@@ -28,7 +28,9 @@ function dicreaseEnemyHp () {
         //敵の体力から与えたダメージを減算します
        enemy_hp = enemy_hp - power;
 
+        //攻撃時にオクトキャットのHPが0より小さいかを確認します
        if (enemy_hp <= 0) {
+
         //htmlからid="log"の要素を取得します
         var log = document.querySelector("#log");
 
@@ -36,10 +38,7 @@ function dicreaseEnemyHp () {
         log.innerHTML += 'オクトキャットを撃破しました<br>';
        }
        
-        //条件式で敵のHPが0以上でない場合に動作します
-	} else {
-       
-	}
+	} 
 
 
     var logTmp = document.getElementById("log");
