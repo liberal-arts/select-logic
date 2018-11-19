@@ -1,18 +1,6 @@
 //このコードはjavascriptにおける変数の定義を厳しめにするコードです
 'use strict';
 
-//敵のHPを定義します
-var enemy_hp = 100;
-
-//自分の攻撃力を定義します
-var power;
-
-//getElementVyIdを用いてhtml上の要素を取得します
-var attack = document.getElementById('button_a');
-
-//このコードはjavascriptにおける変数の定義を厳しめにするコードです
-'use strict';
-
 //HPを定義します
 var enemy_hp = 100;
 
