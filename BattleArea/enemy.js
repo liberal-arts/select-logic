@@ -82,7 +82,10 @@ function dicreaseEnemyHp () {
         //上で定義したlog要素に対して結果を出力します
         log.innerHTML += 'オクトキャットを撃破しました<br>';
        } else {
+
+        //オクトキャットが健在な場合、オクトキャットのアクションを呼び出す
         octocatAction ();
+        
        }
        
 	} 
