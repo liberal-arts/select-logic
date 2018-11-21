@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="style.css">
+<title>RPG COMMAND</title>
+</head>
+<body>
+    
+
+    <div id="game-canvas">
+    
+        <div id="enemy-space">
+            
+            <img src="picture/blackman.png">
+            <img src="picture/charaA.png">
+            
+            <div id="shutter">
+            </div>
+        </div>
+    
+        <div id="player-space">
+            
+            <div id="action-list">
+                <button id="GoAttackList">攻撃する</button>
+                <button id="GoItemList">アイテムする</button>
+                <button id="ChangeDistance">距離をとる</button>
+                <button id="EscapeFromBattle">戦いから逃げる</button>
+            </div>
+            
+            <div id="listOpen">
+                
+                <div id="attack-list">
+                    <button>ノーマルギリ</button>
+                    <button>ネライギリ</button>
+                    <button>タメギリ</button>
+                    <button>ニタイギリ</button>
+                    <button>ドレインギリ</button>
+                </div>
+                
+                <div id="item-list">
+                    <button>やくそう</button>
+                    <button>まほうやく</button>
+                    <button>かみなりのつえ</button>
+                    <button>いのちのしずく</button>
+                    <button>ふしぎないし</button>
+                </div>
+                
+                <div id="distance-action">
+                    <button>かなり近づく</button>
+                    <button>ちょっと近づく</button>
+                    <button>そのまま</button>
+                    <button>ちょっと離れる</button>
+                    <button>かなり離れる</button>
+                </div>          
+                
+            </div>
+            
+            <div id="BattleLog">
+                <h1>-RPG COMMAND IMAGE-</h1>
+                <button id="test-openlog">Game Start</button>
+            </div>
+            
+        </div>
+        
+    </div>
+    
+<script src="sketch.js"></script>    
+</body>
+</html>

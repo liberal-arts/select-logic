@@ -1,0 +1,245 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+}
+
+@keyframes move{
+    0%{
+        transform: scale(0.9) translateY(0);
+    }
+    
+    80%{
+        transform: scale(1.1) rotate(5deg);
+    }
+    90%{
+        transform: scale(1) rotate(-5deg);
+    }
+    100%{
+        transform: scale(0.9) translateY(0);
+    }
+}
+
+@keyframes gradation{
+    0%{filter: hue-rotate(0deg)}
+    50%{filter: hue-rotate(180deg)}
+    100%{filter: hue-rotate(0deg)}
+}
+
+@keyframes opacity-repeat{
+    0%{opacity: 0;}
+    50%{opacity: 1;}
+    100%{opacity: 0;}
+}
+
+body{
+    background-color: black;
+    width:100%;
+    height: 100vh;
+}
+
+#game-canvas {
+    position: relative;
+    top:2vh;
+    width:800px;
+    margin: 0 auto;
+}
+
+#enemy-space {
+    background-color: aqua;
+    width: 100%;
+    height: 60vh;
+    background-image: -webkit-radial-gradient(center top, ellipse farthest-corner, #097C99 0%, #0C2C85 100%);
+    animation-name:  gradation;
+    animation-iteration-count: infinite;
+    animation-duration: 15s;
+    overflow: hidden;
+}
+
+#enemy-space img:nth-child(1){
+    position: absolute;
+    left: 0px;
+    transform: scale(0.9);
+    filter:brightness(70%) drop-shadow(0px 40px 40px #1a1a4d);
+    animation-name: move;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+}
+
+#enemy-space img:nth-child(2){
+    position: absolute;
+    right: 0px;
+    transform: scale(0.9);
+    filter:brightness(70%) drop-shadow(0px 40px 20px #1a1a4d);
+    animation-name: move;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+#enemy-space img:hover{
+    filter: brightness(100%) drop-shadow(0px 0px 50px rgba(242, 242, 242, 0.53));
+}
+
+#player-space {
+    position: relative;
+    margin-top: 2vh;
+    width: 100%;
+    height: 30vh;
+    z-index: 2;
+    background-color: black;
+    overflow: hidden;
+}
+
+#action-list {
+    width:40%;
+    height: 100%;
+}
+
+#action-list button{
+    color:white;
+    position: relative;
+    width: 100%;
+    height: 25%;
+    background-color: transparent;
+    border: solid 1px;
+    overflow: hidden;
+    font-family: "VL Gothic";
+    font-weight: bold;
+    font-size: 20px;
+    transition-duration: 0.3s;
+}
+#action-list button::after{
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width:5%;
+    height: 100%;
+    background-color: white;
+    transform: translateX(-100%);
+    transition: 0.2s;
+    z-index: -1;
+}
+
+#action-list button:hover::before{
+    transform: translateX(0%);
+}
+
+#action-list button:hover::after{
+    transform: translateX(0%);
+}
+
+#action-list button::before{
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width:85%;
+    height: 100%;
+    background-color: white;
+    transform: translateX(100%);
+    transition: 0.3s;
+    z-index: -1;
+}
+
+#action-list button:hover{
+    color:black;
+}
+
+#listOpen {
+    position:absolute;
+    top:0px;
+    left:40%;
+    width:60%;
+    height: 100%;
+    background-color:transparent;
+    overflow: hidden;
+    transition: 2s;
+}
+
+#listOpen button{
+    width:100%;
+    height:20%;
+    background-color: black;
+    border:solid 1px;
+    color:white;
+}
+
+#listOpen button:hover{
+    font-size:20px;
+}
+
+
+
+
+
+#BattleLog {
+    position: absolute;
+    top: 0px;
+    width:100%;
+    height: 100%;
+    background-color:black;
+    transition-duration: 0.6s;
+    transform:translateY(0%);
+    border: solid 1px white;
+}
+
+#BattleLog button{
+    color:white;
+    background-color: transparent;
+    border: 0;
+    width: 100%;
+    height: 90%;
+    font-size:30px;
+    animation-name: opacity-repeat;
+    animation-iteration-count: infinite;
+    animation-duration: 4s;
+}
+#BattleLog h1{transform: translateY(37px);
+    color: white;
+    text-align: center;
+}
+#attack-list{
+    position: absolute;
+    width:100%;
+    height: 100%;
+    transform: translateX(-100%);
+    transition-duration: 0.6s;
+}
+
+#item-list {
+    position: absolute;
+    width:100%;
+    height: 100%;
+    transform: translateY(-100%);
+    transition-duration: 0.6s;
+}
+
+#distance-action {
+    position: absolute;
+    width:100%;
+    height: 100%;
+    transform: translateX(100%);
+    transition-duration: 0.6s;
+}
+
+#shutter {
+    position: absolute;
+    left: 0%;
+    width:100%;
+    height: 100%;
+    background-color: black;
+    transition-duration: 0.6s;
+    transform:translateY(0%);
+    background-image: url(picture/ningen.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:contain;
+    border: solid 1px white;
+}
+
+#logo {
+    animation-name: opacity-repeat;
+}
