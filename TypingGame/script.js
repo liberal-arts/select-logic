@@ -5,6 +5,13 @@
 //タイプ対象のワード
 var currentWord ='apple';
 
+//敵の体力を定義
+var enemy_hp = 100;
+var current_enemy_hp = enemy_hp;
+
+//プレイヤーの攻撃力を定義
+var player_attack = 20;
+
 //タイプ対象のワードの配列
 var words = [
   'strong',
@@ -29,6 +36,7 @@ var miss;
 var target = document.querySelector('#target');
 var scoreLabel = document.querySelector('#score');
 var missLabel = document.querySelector('#miss');
+var progressBar = document.querySelector('#hp_text');
 
 //ゲームが始まっているかの真偽値を格納する変数
 var isStarted;
@@ -75,6 +83,16 @@ window.addEventListener('click', function() {
 
 });
 
+//敵に攻撃するときのダメージ計算ファンクション
+function attack_enemy() {
+	if (current_enemy_hp >= enemy_hp){
+        current_enemy_hp = enemy_hp - player_attack;
+    } else {
+        current_enemy_hp -= player_attack;
+    }
+
+    progressBar.value = current_enemy_hp / enemy_hp;
+}
 
 //プレイヤーが入力したキーを取得します
 window.addEventListener('keyup', function(e) {
@@ -102,6 +120,7 @@ window.addEventListener('keyup', function(e) {
 
 	    //タイプ対象を打ち終えた場合、setTargetファンクションを行う
 	    if (currentLocation === currentWord.length) {
+            attack_enemy();
 	    	setTarget();
 	    }
 	} else {

@@ -35,3 +35,12 @@ ul li {
     font-size: xx-large;
     text-align: center;
 }
+
+#hp_meter {
+	text-align: center;
+}
+
+progress{
+	width: 100;
+	height: 30;
+}
