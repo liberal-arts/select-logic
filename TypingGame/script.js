@@ -7,6 +7,8 @@ var currentWord ='apple';
 
 //敵の体力を定義
 var enemy_hp = 100;
+
+//敵の現在の体力を定義
 var current_enemy_hp = enemy_hp;
 
 //プレイヤーの攻撃力を定義
@@ -75,15 +77,22 @@ function setTarget() {
 	currentLocation = 0;
 }
 
+//クリックした時にファンクションが起動
 window.addEventListener('click', function() {
+
+	//ゲーム開始の真偽値がfalseの場合関数を実行する
 	if (!isStarted){
+
+		//ゲーム開始の真偽値をtrueに変換する
         isStarted = true;
+
+        //setTargetの関数を呼び出す
         setTarget();
     }
 
 });
 
-//敵に攻撃するときのダメージ計算ファンクション
+//敵に攻撃するときのダメージ計算関数
 function attack_enemy() {
 	if (current_enemy_hp >= enemy_hp){
         current_enemy_hp = enemy_hp - player_attack;
@@ -97,6 +106,7 @@ function attack_enemy() {
 //プレイヤーが入力したキーを取得します
 window.addEventListener('keyup', function(e) {
 
+    //isStartedの真偽値がfalseだった場合、returnする
 	if (!isStarted) {
 		return;
 	}
@@ -106,16 +116,25 @@ window.addEventListener('keyup', function(e) {
 	// 取得した文字列が現在のワードを大文字にした文字列と同じであれば、_の変数を増算する
 	if (String.fromCharCode(e.keyCode) === 
 	currentWord[currentLocation].toUpperCase()) {
+
+		//取得した関数が合っていた場合、現在タイピングしている文字列の位置を一つズラす
 		currentLocation++;
+
+        //文字を隠す変数を定義
 	    var placeholder ='';
+
+        //現在タイピング中の文字数分だけ「_」で文字を変換する
 	    for (var i = 0; i < currentLocation; i++) {
 	    	placeholder += '_';
 	    }
 
-        
+        //「_」に変換された文字と現在の文字列を連結する
         target.innerHTML = placeholder + currentWord.substring(currentLocation);
 
+        //連結した場合、スコアの値を増算する
 		score++;
+
+		//取得したhtml要素に対してスコアの値を出力する
 	    scoreLabel.innerHTML = score;
 
 	    //タイプ対象を打ち終えた場合、setTargetファンクションを行う
@@ -123,8 +142,13 @@ window.addEventListener('keyup', function(e) {
             attack_enemy();
 	    	setTarget();
 	    }
+
 	} else {
+
+		//取得したキーと現在タイピングしている値が違う場合にmissの変数を増算する
 		miss++;
+
+		//取得したhtml要素に対してmissの値を出力する
 		missLabel.innerHTML = miss;
 	}
 }
